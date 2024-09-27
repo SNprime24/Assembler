@@ -1,17 +1,18 @@
-<h1>Assembly to Binary Converter</h1>
+# RISC-V Assembly to Binary Converter
 
 This project is a **RISC-V Assembly to Binary Converter** written in C++. It parses assembly language instructions and converts them into their respective machine-level binary code. This tool is useful for students, educators, and developers working with assembly languages or those interested in learning how instructions are encoded at a lower level.
 
 ## Features
 
 - **Instruction Types Supported**: 
-  - Register-type (R-type) instructions: `ADD`, `SUB`, `AND`, `OR`, etc.
-  - Immediate-type (I-type) instructions: `ADDI`, `ORI`, `XORI`, etc.
-  - Load-type (L-type) instructions: `LW`, `LD`, `LH`, etc.
-  - Store-type (S-type) instructions: `SW`, `SD`, `SB`, etc.
-  - Branch-type (B-type) instructions: `BEQ`, `BNE`, `BLT`, etc.
+  - Register-type (R-type) instructions: `ADD`, `SLT`, `SLTU`, `AND`, `OR`, `XOR`, `SLL`, `SRL`, `SUB`, `SRA`
+  - Immediate-type (I-type) instructions: `ADDI`, `ORI`, `XORI`, `SLTI`, `ANDI`, `SLLI`, `SRLI`, `SRAI`
+  - Load-type (L-type) instructions: `LW`, `LD`, `LH`, `LB`, `LWU`, `LHU`, `LBU`
+  - Store-type (S-type) instructions: `SW`, `SD`, `SB`, `SHW`
+  - Branch-type (B-type) instructions: `BEQ`, `BNE`, `BLT`, `BGE`
   - Upper Immediate-type (U-type) instructions: `LUI`, `AUIPC`
   - Jump-type (J-type) instructions: `JAL`
+  
 - **Label Support**: Handles labels and branches, calculating the correct offsets.
 - **File Input/Output**: Reads assembly instructions from an input file and writes the corresponding binary instructions to an output file.
 - **Error Handling**: Reports errors for unsupported instructions, register out-of-range, immediate value out-of-range, and more.
@@ -23,37 +24,21 @@ This project is a **RISC-V Assembly to Binary Converter** written in C++. It par
 - [Instruction Types](#instruction-types)
 - [Code Structure](#code-structure)
 - [Contributing](#contributing)
-- [License](#license)
 
 ## Getting Started
 
 ### Prerequisites
 
-- A C++ compiler like GCC or Clang.
-- CMake or Make (optional) for building the project.
+- A C++ compiler like G++
 - Basic knowledge of assembly language, especially the RISC-V architecture.
 
 ### Installation
 
 1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/assembly-to-binary-converter.git
-   cd assembly-to-binary-converter
-   ```
 
 2. **Compile the code:**
-   If you're using GCC:
-   ```bash
-   g++ -o assembler converter.cpp
-   ```
-
-   Alternatively, you can use CMake or a Makefile for ease of building.
-
+   
 3. **Run the converter:**
-   ```bash
-   ./assembler
-   ```
-
    Make sure the input assembly file (`input.asm`) is in the same directory or provide a path.
 
 ## Usage
@@ -61,16 +46,20 @@ This project is a **RISC-V Assembly to Binary Converter** written in C++. It par
 1. **Prepare your input assembly file (`input.asm`):**
    Here's an example:
    ```
-   LUI x10, 0x00000
-   ADD x12, x13, x14
-   JAL x1, 0x200
+    add x3, x4, x5
+    addi x3, x3, 10
+    
+    for:
+    bne x3, x2, done
+    lw x2, 10(x3)
+    jal x2, for
+    
+    done:
+    sw x1, 13(x3)
    ```
 
 2. **Run the assembler:**
    Run the compiled binary, and it will automatically process the `input.asm` and generate the `output.bin` file:
-   ```bash
-   ./assembler
-   ```
 
 3. **View the output:**
    The output binary file (`output.bin`) will contain the binary instructions for your assembly code.
@@ -172,31 +161,16 @@ Here’s an example of converting a simple instruction using the tool:
 
 Input (Assembly):
 ```
-ADD x12, x13, x14
+ADD x23, x18, x19
 ```
 
 Output (Binary):
 ```
-00000001101001100000001100110011
+00000001001110010000101110110011
 ```
 
 The tool reads the `input.asm`, processes the instruction, and outputs the binary equivalent into `output.bin`.
 
 ## Contributing
 
-Contributions are welcome! If you find a bug, want to add more instruction support, or improve the code structure, feel free to:
-
-1. Fork the repository.
-2. Create a new branch (`git checkout -b feature-branch`).
-3. Make your changes.
-4. Commit your changes (`git commit -am 'Add new feature'`).
-5. Push to the branch (`git push origin feature-branch`).
-6. Open a pull request.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-This README should cover the essential aspects of your project, guiding users on how to use and contribute to it. Let me know if you'd like any further customizations!
+Contributions are welcome!! If you find a bug, want to add more instruction support, or improve the code structure feel free to submit a pull request or open an issue
