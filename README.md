@@ -178,12 +178,12 @@ The tool reads the `input.asm`, processes the instruction, and outputs the binar
 
 ## ASSEMBLERv2 UPDATES 
 
--Added Comments functionality
--Added JALR definition
--Added funtionality of multiplication, division and modulus
--now register can be accessed using register names
--Added the functionality of finding error line number in the assembly code
--Now JAL and JALR can take immediate values as well as labels
+  - Added Comments functionality
+  - Added JALR definition
+  - Added funtionality of multiplication, division and modulus
+  - now register can be accessed using register names
+  - Added the functionality of finding error line number in the assembly code
+  - Now JAL and JALR can take immediate values as well as labels
 
 
 ## Contributing
