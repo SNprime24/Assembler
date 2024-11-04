@@ -11,7 +11,7 @@ This project is a **RISC-V Assembly to Binary Converter** written in C++. It par
   - Store-type (S-type) instructions: `SW`, `SD`, `SB`, `SHW`
   - Branch-type (B-type) instructions: `BEQ`, `BNE`, `BLT`, `BGE`
   - Upper Immediate-type (U-type) instructions: `LUI`, `AUIPC`
-  - Jump-type (J-type) instructions: `JAL`
+  - Jump-type (J-type) instructions: `JAL`,`JALR`(supported only in version 2)
   
 - **Label Support**: Handles labels and branches, calculating the correct offsets.
 - **File Input/Output**: Reads assembly instructions from an input file and writes the corresponding binary instructions to an output file.
@@ -124,12 +124,17 @@ LUI x10, 0x00000
 
 ### Jump-Type (J-type)
 
-Jump and link instructions like `JAL` (jump and link).
+Jump and link instructions like `JAL`,`JALR` (jump and link).
 
 Example:
 ```
 JAL x1, label
 ```
+supported in Version 2 -->
+```
+JAL x1, immediate value
+```
+
 
 ## Code Structure
 
