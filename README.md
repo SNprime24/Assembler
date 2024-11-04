@@ -176,6 +176,16 @@ Output (Binary):
 
 The tool reads the `input.asm`, processes the instruction, and outputs the binary equivalent into `output.bin`.
 
+## ASSEMBLERv2 UPDATES 
+
+-Added Comments functionality
+-Added JALR definition
+-Added funtionality of multiplication, division and modulus
+-now register can be accessed using register names
+-Added the functionality of finding error line number in the assembly code
+-Now JAL and JALR can take immediate values as well as labels
+
+
 ## Contributing
 
 Contributions are welcome!! If you find a bug, want to add more instruction support, or improve the code structure feel free to submit a pull request or open an issue
