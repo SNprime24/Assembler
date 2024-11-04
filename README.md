@@ -24,6 +24,7 @@ This project is a **RISC-V Assembly to Binary Converter** written in C++. It par
 - [Instruction Types](#instruction-types)
 - [Code Structure](#code-structure)
 - [Contributing](#contributing)
+- [ASSEMBLERv2 UPDATES](#assemblerv2-updates)
 
 ## Getting Started
 
